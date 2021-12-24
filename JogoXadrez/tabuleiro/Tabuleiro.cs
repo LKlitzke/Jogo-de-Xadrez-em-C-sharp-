@@ -23,7 +23,14 @@ namespace tabuleiro
 
         public Peca peca(Posicao pos)
         {
-            return pecas[pos.linha, pos.coluna];
+            try
+            {
+                return pecas[pos.linha, pos.coluna];
+            }
+            catch (IndexOutOfRangeException)
+            {
+                throw new TabuleiroException("Entrada inválida! Tente novamente.");
+            }
         }
 
         public bool existePeca(Posicao pos)

@@ -20,7 +20,6 @@ namespace xadrez
         public override bool[,] movimentosPossiveis()
         {
             bool[,] mat = new bool[tab.linhas, tab.colunas];
-
             Posicao pos = new Posicao(0, 0);
 
             // Acima (N)
@@ -29,9 +28,8 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if(tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
+
                 pos.linha = pos.linha - 1;
             }
 
@@ -41,9 +39,8 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
+
                 pos.coluna= pos.coluna + 1;
             }
 
@@ -53,9 +50,8 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
+                
                 pos.linha = pos.linha + 1;
             }
 
@@ -65,9 +61,8 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
+                
                 pos.coluna = pos.coluna - 1;
             }
             return mat;

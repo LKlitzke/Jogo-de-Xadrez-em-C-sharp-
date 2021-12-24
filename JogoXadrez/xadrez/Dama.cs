@@ -23,7 +23,6 @@ namespace xadrez
         public override bool[,] movimentosPossiveis()
         {
             bool[,] mat = new bool[tab.linhas, tab.colunas];
-
             Posicao pos = new Posicao(0, 0);
 
             // esquerda
@@ -32,9 +31,8 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
+                
                 pos.definirValores(pos.linha, pos.coluna - 1);
             }
 
@@ -44,9 +42,8 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
+                
                 pos.definirValores(pos.linha, pos.coluna + 1);
             }
 
@@ -56,9 +53,8 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
+                
                 pos.definirValores(pos.linha - 1, pos.coluna);
             }
 
@@ -68,9 +64,8 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
+                
                 pos.definirValores(pos.linha + 1, pos.coluna);
             }
 
@@ -80,9 +75,8 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
+                
                 pos.definirValores(pos.linha - 1, pos.coluna - 1);
             }
 
@@ -92,9 +86,8 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
+                
                 pos.definirValores(pos.linha - 1, pos.coluna + 1);
             }
 
@@ -104,9 +97,8 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
+                
                 pos.definirValores(pos.linha + 1, pos.coluna + 1);
             }
 
@@ -116,12 +108,10 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
+                
                 pos.definirValores(pos.linha + 1, pos.coluna - 1);
             }
-
             return mat;
         }
     }

@@ -9,12 +9,13 @@
 
         public Peca(Tabuleiro tab, Cor cor)
         {
-            this.posicao = null;
+            posicao = null;
             this.cor = cor;
             this.tab = tab;
             qtdMovimentos = 0;
         }
 
+        // Verifica se há movimentos possíveis através da matriz booleana de possibilidades
         public bool existeMovimentosPossiveis()
         {
             bool[,] mat = movimentosPossiveis();
@@ -31,7 +32,9 @@
             return false;
         }
 
+        // Método abstrato para as subclasses de Peça
         public abstract bool[,] movimentosPossiveis();
+
 
         public bool movimentoPossivel(Posicao pos)
         {

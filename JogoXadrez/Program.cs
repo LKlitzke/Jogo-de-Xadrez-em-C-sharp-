@@ -11,6 +11,9 @@ namespace JogoXadrez
             {
                 PartidaDeXadrez partida = new PartidaDeXadrez();
 
+                Console.WriteLine("\n\t -------- BEM-VINDO AO JOGO DE XADREZ EM C#! --------\n\t\t  APERTE QUALQUER BOTÃO PARA INICIAR!");
+                Console.ReadKey();
+
                 while (!partida.terminada)
                 {
                     try
@@ -42,8 +45,6 @@ namespace JogoXadrez
                 }
                 Console.Clear();
                 Tela.imprimirPartida(partida);
-                
-
                 Console.ReadLine();
             }
             catch(TabuleiroException e)
