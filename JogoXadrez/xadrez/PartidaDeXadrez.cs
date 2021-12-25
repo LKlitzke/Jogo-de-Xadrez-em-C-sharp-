@@ -140,9 +140,9 @@ namespace xadrez
                 {
                     p = tab.retirarPeca(destino);
                     pecas.Remove(p);
-                    Peca dama = new Dama(tab, p.cor);
-                    tab.colocarPeca(dama, destino);
-                    pecas.Add(dama);
+                    Peca newPeca = selecionarPecaPromocao(tab, p.cor);
+                    tab.colocarPeca(newPeca, destino);
+                    pecas.Add(newPeca);
                 }
             }
 
@@ -161,6 +161,39 @@ namespace xadrez
                 vulneravelEnPassant = p;
             else
                 vulneravelEnPassant = null;
+        }
+        public Peca selecionarPecaPromocao(Tabuleiro tab, Cor cor)
+        {
+            try
+            {
+                Console.Write("\nQual peça deseja selecionar? Dama | Bispo | Cavalo | Torre\n> ");
+                string choice = Console.ReadLine();
+                switch (choice.ToLower())
+                {
+                    case "dama":
+                        return new Dama(tab, cor);
+                    case "torre":
+                        return new Torre(tab, cor);
+                    case "bispo":
+                        return new Bispo(tab, cor);
+                    case "cavalo":
+                        return new Cavalo(tab, cor);
+                    default:
+                        Console.WriteLine("Peça inválida. Selecionando Dama automaticamente.");
+                        Console.ReadLine();
+                        return new Dama(tab, cor);
+                }
+            }
+            catch(TabuleiroException e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+            catch(NullReferenceException e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
         }
 
         public void validarPosicaoDeOrigem(Posicao pos)
@@ -284,7 +317,7 @@ namespace xadrez
             colocarNovaPeca('h', 1, new Torre(tab, Cor.Branca));
             colocarNovaPeca('a', 2, new Peao(tab, Cor.Branca, this));
             colocarNovaPeca('b', 2, new Peao(tab, Cor.Branca, this));
-            colocarNovaPeca('c', 2, new Peao(tab, Cor.Branca, this));
+            colocarNovaPeca('c', 7, new Peao(tab, Cor.Branca, this));//
             colocarNovaPeca('d', 2, new Peao(tab, Cor.Branca, this));
             colocarNovaPeca('e', 2, new Peao(tab, Cor.Branca, this));
             colocarNovaPeca('f', 2, new Peao(tab, Cor.Branca, this));
@@ -294,7 +327,7 @@ namespace xadrez
             // Peças pretas
             colocarNovaPeca('a', 8, new Torre(tab, Cor.Preta));
             colocarNovaPeca('b', 8, new Cavalo(tab, Cor.Preta));
-            colocarNovaPeca('c', 8, new Bispo(tab, Cor.Preta));
+            //colocarNovaPeca('c', 8, new Bispo(tab, Cor.Preta));
             colocarNovaPeca('d', 8, new Dama(tab, Cor.Preta));
             colocarNovaPeca('e', 8, new Rei(tab, Cor.Preta, this));
             colocarNovaPeca('f', 8, new Bispo(tab, Cor.Preta));
@@ -302,7 +335,7 @@ namespace xadrez
             colocarNovaPeca('h', 8, new Torre(tab, Cor.Preta));
             colocarNovaPeca('a', 7, new Peao(tab, Cor.Preta, this));
             colocarNovaPeca('b', 7, new Peao(tab, Cor.Preta, this));
-            colocarNovaPeca('c', 7, new Peao(tab, Cor.Preta, this));
+            //colocarNovaPeca('c', 7, new Peao(tab, Cor.Preta, this));
             colocarNovaPeca('d', 7, new Peao(tab, Cor.Preta, this));
             colocarNovaPeca('e', 7, new Peao(tab, Cor.Preta, this));
             colocarNovaPeca('f', 7, new Peao(tab, Cor.Preta, this));
